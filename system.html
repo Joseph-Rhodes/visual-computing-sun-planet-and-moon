@@ -16,7 +16,7 @@
         import * as THREE from "https://web.cs.manchester.ac.uk/three/three.js-master/build/three.module.js";
         import { OrbitControls } from "https://web.cs.manchester.ac.uk/three/three.js-master/examples/jsm/controls/OrbitControls.js";
         
-        let curve; // Define curve globally
+        let curve;
         var scene, camera, renderer;
         var controls;
         var milkywayGeometry, milkywayMaterial, milkywayMesh;
@@ -49,6 +49,7 @@
             controls.enableDamping = true;
             controls.dampingFactor = 0.05;
             controls.maxDistance = 950;
+
             // Texture Loader
             const loader = new THREE.TextureLoader();
             
@@ -99,7 +100,7 @@
             axisGeomtery = new THREE.BufferGeometry().setFromPoints(axisPoints);
             axis = new THREE.Line(
             axisGeomtery,
-            new THREE.LineBasicMaterial({color: 0x330000, transparent: true, opacity: 0.5})
+            new THREE.LineBasicMaterial({transparent: true, opacity: 0})
             );
             
             axis.rotation.z = 0.41;
@@ -122,10 +123,10 @@
             // Shadows
             renderer.shadowMap.enabled = true;
             pointLight.castShadow = true;
-            pointLight.shadow.mapSize.width = 512;
-            pointLight.shadow.mapSize.height = 512;
-            pointLight.shadow.camera.near = 150;
-            pointLight.shadow.camera.far = 350;
+            pointLight.shadow.mapSize.width = 1000;
+            pointLight.shadow.mapSize.height = 1000;
+            pointLight.shadow.camera.near = 10;
+            pointLight.shadow.camera.far = 500;
             earthMesh.castShadow = true;
             earthMesh.receiveShadow = true;
             cloudMesh.receiveShadow = true;
@@ -134,34 +135,29 @@
             
             // Ellipse Curve
             curve = new THREE.EllipseCurve(
-            0,  0,            // ax, aY
-            250, 300,           // xRadius, yRadius
-            0,  2 * Math.PI,  // aStartAngle, aEndAngle
-            false,            // aClockwise
-            0                 // aRotation
+            0,  0,           
+            300, 350,           
+            0,  2 * Math.PI,  
+            false,            
+            0                 
             );
             
-            const points = curve.getPoints(200);
+            const points = curve.getPoints(100);
             const geometry = new THREE.BufferGeometry().setFromPoints(points);
             const material = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5});
             const ellipse = new THREE.Line(geometry, material);
             ellipse.rotateX(-Math.PI/2);
             scene.add(ellipse);
-            
+
         }
         
         
-        // const orbitTime = 1;
-        // const moonOrbitRadius = 55;
-        // const moonOrbitSpeed = 80;
-        
         function animate(){
-            const time = 0.00001 * performance.now();
+            const time = 0.00002 * performance.now();
             const t = (time % 1) / 1;
             
             const p = curve.getPoint(t); 
-            console.log(p, t);
-            
+                        
             earthSystem.position.x = p.x;
             earthSystem.position.z = p.y;
             
@@ -169,10 +165,10 @@
             moonMesh.position.z = -Math.sin(time * 80) * 55; 
             
             
-            sunMesh.rotation.y += 0.0008;
-            earthMesh.rotation.y += 0.0015;
-            cloudMesh.rotation.y += 0.0025;
-            moonMesh.rotation.y += 0.0001;
+            sunMesh.rotation.y += 0.001;
+            earthMesh.rotation.y += 0.008;
+            cloudMesh.rotation.y += 0.007;
+            moonMesh.rotation.y += 0.001;
             
             renderer.render(scene, camera);
             requestAnimationFrame(animate);
