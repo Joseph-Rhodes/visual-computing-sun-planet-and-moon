@@ -30,7 +30,7 @@ Click the link below to **download the recorded Solar System simulation**:
 
 [⬇ Download Solar System Video](./Solar%20System%20Video.mp4)
 
-If the link doesn't work, manually open `Solar System Video.mp4` in a media player.
+If the link doesn't work, manually download and open `Solar System Video.mp4` in a media player.
 
 ## Enhancements
 - **Rotating Sun, Earth, and Moon**: Add rotation for realistic day/night cycles.
