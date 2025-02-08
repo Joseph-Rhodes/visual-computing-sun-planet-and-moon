@@ -25,12 +25,12 @@ To run the simulation, simply open the HTML file in a **web browser**.
 - 🎨 **Textures**: Optional textures can be applied for a more realistic appearance.
 - 🌌 **Background Stars**: A large textured sphere represents the Milky Way.
 
-## Watch the Simulation Video 🎥
-Click the link below to watch the recorded **solar system simulation** in your web browser:
+## 📥 Download the Simulation Video 🎥
+Click the link below to **download the recorded Solar System simulation**:
 
-[▶ Watch Solar System Simulation](./Solar%20System%20Video%20.mp4)
+[⬇ Download Solar System Video](./Solar%20System%20Video.mp4)
 
-If the link doesn't work, you may need to manually open `Updated Solar System video.mov` in a media player.
+If the link doesn't work, manually open `Solar System Video.mp4` in a media player.
 
 ## Enhancements
 - **Rotating Sun, Earth, and Moon**: Add rotation for realistic day/night cycles.
