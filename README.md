@@ -28,7 +28,7 @@ To run the simulation, simply open the HTML file in a **web browser**.
 ## Watch the Simulation Video 🎥
 Click the link below to watch the recorded **solar system simulation** in your web browser:
 
-[▶ Watch Solar System Simulation](./Updated%20Solar%20System%20video.mov)
+[▶ Watch Solar System Simulation](./Solar%20System%20Video%20.mp4)
 
 If the link doesn't work, you may need to manually open `Updated Solar System video.mov` in a media player.
 
